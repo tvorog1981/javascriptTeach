@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script defer>
+
+// const salaryOfJuniorDeveloper = 500;
+// const numberOfJuniorDevelopers = 3;
+// let taxPercentage = 13;
+// let totalJuniorDevelopersSalary;
+                
+// for (let i = 0; i < numberOfJuniorDevelopers; i += 1) {
+//    const salaryWithTax = salaryOfJuniorDeveloper-(salaryOfJuniorDeveloper*taxPercentage/100);
+//    totalJuniorDevelopersSalary += salaryWithTax;
+// }
+// console.log('totalJuniorDevelopersSalary', totalJuniorDevelopersSalary);
+
+const salaryOfJuniorDeveloper = 500;
+const numberOfJuniorDevelopers = 3;
+let taxPercentage = 13;
+let totalJuniorDevelopersSalary = 0 ;
+                
+for (let i = 0; i < numberOfJuniorDevelopers; i += 1) {
+   const salaryWithTax = salaryOfJuniorDeveloper - (salaryOfJuniorDeveloper * taxPercentage / 100);
+   console.log(salaryWithTax);
+   totalJuniorDevelopersSalary += salaryWithTax;
+   console.log(totalJuniorDevelopersSalary);
+}
+console.log('totalJuniorDevelopersSalary', totalJuniorDevelopersSalary);
+
+    </script>
+</body>
+</html>
