@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const peopleWaiting = [
+				"Кристина",
+				"Олег",
+				"Кирилл",
+				"Мария",
+				"Светлана",
+				"Артем",
+				"Глеб",
+			];
+
+			const giveParcel = (people, arr) => {
+				if (Array.isArray(arr) && typeof people !== "undefined") {
+					let inx = arr.indexOf(people);
+					let peopleRemoveFrom = arr[inx];
+					// arr = arr.filter((i, index) => index !== inx);
+					arr.splice(inx, 1);
+					alert(
+						`Посылку получил ${peopleRemoveFrom} в очереди осталось ${arr.length} чел`
+					);
+					return true;
+				}
+				return "undefined";
+			};
+			const removeAllPeople = (arr) => {
+				if (Array.isArray(arr)) {
+					let str = "";
+					for (let i = 0; i < arr.length; i++) {
+						if (i === 0) str = "" + arr[i];
+						else str += ", " + arr[i];
+					}
+					alert(`Очередь покинули ${str}`);
+					return true;
+				}
+				return "undefined";
+			};
+			giveParcel("Кристина", peopleWaiting);
+			removeAllPeople(peopleWaiting);
+		</script>
+	</body>
+</html>
