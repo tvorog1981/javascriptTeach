@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const getSumOfNumbers = (number, type = "odd") => {
+				if (typeof number === "undefined" || typeof number !== "number") {
+					return "NaN";
+				}
+				if (number != 0) {
+					if (type === "odd") {
+						let sum = 0;
+						for (let i = 0; i <= number; i++) {
+							if (i % 2 !== 0) sum += i;
+						}
+						return sum;
+					}
+					if (type === "even") {
+						let sum = 0;
+						for (let i = 0; i <= number; i++) {
+							if (i % 2 == 0) sum += i;
+						}
+						return sum;
+					}
+					if (type === "") {
+						let sum = 0;
+						for (let i = 0; i <= number; i++) {
+							sum += i;
+						}
+						return sum;
+					}
+				}
+				return "undefined";
+			};
+			console.log(getSumOfNumbers(""));
+			console.log(getSumOfNumbers(10, "odd")); // 25
+			console.log(getSumOfNumbers(10, "even")); // 30
+			console.log(getSumOfNumbers(10, ""));
+		</script>
+	</body>
+</html>
