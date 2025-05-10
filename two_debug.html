@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script defer>
-//      const temperatureInCelsius = prompt('Введите температуру в градусах Цельсия');
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			//      const temperatureInCelsius = prompt('Введите температуру в градусах Цельсия');
 
-// if (temperatureInCelsius === 0) {
-//    alert('0 градусов по Цельсию - это температура замерзания воды')
-// } else if (temperatureInCelsius > 0) {
-//    alert('Для замерзания воды температура должна быть 0 градусов по Цельсию либо ниже');
-// }
+			// if (temperatureInCelsius === 0) {
+			//    alert('0 градусов по Цельсию - это температура замерзания воды')
+			// } else if (temperatureInCelsius > 0) {
+			//    alert('Для замерзания воды температура должна быть 0 градусов по Цельсию либо ниже');
+			// }
 
-// const temperatureInFahrenheit = (temperatureIncelsius) * 9 / 5 + 32;
-// alert(`%{temperatureInCelsius} градусов по Цельсию - это %{temperatureInFahrenheit} по Фаренгейту.`);
+			// const temperatureInFahrenheit = (temperatureIncelsius) * 9 / 5 + 32;
+			// alert(`%{temperatureInCelsius} градусов по Цельсию - это %{temperatureInFahrenheit} по Фаренгейту.`);
 
-const temperatureInCelsius = Number(prompt('Введите температуру в градусах Цельсия'));
+			const temperatureInCelsius = Number(
+				prompt("Введите температуру в градусах Цельсия")
+			);
 
-if (temperatureInCelsius === 0 && (typeof temperatureInCelsius === 'number')) {
-   alert('0 градусов по Цельсию - это температура замерзания воды')
-} else if (temperatureInCelsius > 0 && (typeof temperatureInCelsius === 'number')) {
-   alert('Для замерзания воды температура должна быть 0 градусов по Цельсию либо ниже');
-}
-console.log(temperatureInCelsius);
-const temperatureInFahrenheit =   (9 / 5 * temperatureInCelsius) + 32;
-console.log(temperatureInFahrenheit);
-alert(`${temperatureInCelsius} градусов по Цельсию - это ${temperatureInFahrenheit} по Фаренгейту.`);
-
-
-
-    </script>
-</body>
+			if (
+				temperatureInCelsius === 0 &&
+				typeof temperatureInCelsius === "number"
+			) {
+				alert("0 градусов по Цельсию - это температура замерзания воды");
+			} else if (
+				temperatureInCelsius > 0 &&
+				typeof temperatureInCelsius === "number"
+			) {
+				alert(
+					"Для замерзания воды температура должна быть 0 градусов по Цельсию либо ниже"
+				);
+			}
+			console.log(temperatureInCelsius);
+			const temperatureInFahrenheit = (9 / 5) * temperatureInCelsius + 32;
+			console.log(temperatureInFahrenheit);
+			alert(
+				`${temperatureInCelsius} градусов по Цельсию - это ${temperatureInFahrenheit} по Фаренгейту.`
+			);
+		</script>
+	</body>
 </html>
