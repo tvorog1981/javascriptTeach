@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			let password = prompt("Введите пароль").trim();
+			let flag = false;
+			console.log(password.length);
+			if (password.length > 3 && password.length <= 30) {
+				let arrayChars = "АBCDEFGHIJKLMNOPQRSTUVWXYZBCDFGHJKLMNPQRSTVWXYZ";
+				for (let i = 0; i < arrayChars.length; i++) {
+					if (password.includes(arrayChars[i])) {
+						let arrayNumbers = "1234567890";
+						for (let j = 0; j < arrayNumbers.length; j++) {
+							if (password.includes(arrayNumbers[j])) {
+								flag = true;
+								break;
+							}
+						}
+					}
+					if (flag) {
+						break;
+					}
+				}
+			}
+			if (!flag) {
+				alert("Пароль не валидный");
+			} else {
+				alert("Пароль валидный");
+			}
+		</script>
+	</body>
+</html>

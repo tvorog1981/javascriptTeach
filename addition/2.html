@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			let clients = [
+				{ name: "Игорь", countMoney: 110, discount: 10 },
+				{ name: "Даша", countMoney: 310, discount: 20 },
+				{ name: "Коля", countMoney: 510, discount: 30 },
+			];
+			let nameClient = String(prompt("Имя клиент").trim());
+			let sum = Number(prompt("Кол-во денег").trim());
+			let i = 0;
+			let indexClient = -1;
+			while (i < clients.length) {
+				if (nameClient === clients[i].name) {
+					indexClient = i;
+					console.log("fsadf");
+					break;
+				}
+			}
+			if (indexClient != -1) {
+				if (
+					clients[indexClient].countMoney > 100 &&
+					clients[indexClient].countMoney < 300
+				) {
+					let d = sum - (sum / 100) * clients[indexClient].discount;
+					clients[indexClient].countMoney += d;
+					alert(
+						`Спасибо клиент ${clients[indexClient].name} ваш счет с учетом скидки ${clients[indexClient].discount}% cоставит ${d} за все время вы потратили у нас ${clients[indexClient].countMoney}`
+					);
+				}
+				if (
+					clients[indexClient].countMoney > 300 &&
+					clients[indexClient].countMoney < 500
+				) {
+					let d = sum - (sum / 100) * clients[indexClient].discount;
+					clients[indexClient].countMoney += d;
+					alert(
+						`Спасибо клиент ${clients[indexClient].name} ваш счет с учетом скидки ${clients[indexClient].discount}% cоставит ${d} за все время вы потратили у нас ${clients[indexClient].countMoney}`
+					);
+				}
+				if (clients[indexClient].countMoney > 500) {
+					let d = sum - (sum / 100) * clients[indexClient].discount;
+					clients[indexClient].countMoney += d;
+					alert(
+						`Спасибо клиент ${clients[indexClient].name} ваш счет с учетом скидки ${clients[indexClient].discount}% cоставит ${d} за все время вы потратили у нас ${clients[indexClient].countMoney}`
+					);
+				}
+			} else {
+				alert("Вы новый клиен вам скидка не положена");
+			}
+		</script>
+	</body>
+</html>
