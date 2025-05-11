@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const goals = [8, 1, 1, 3, 2, -1, 5];
+			const resultMoreBig = (arr) => {
+				let max = 0;
+				let j = 0;
+				for (let i = 0; i < arr.length; i++) {
+					if (max < arr[i]) {
+						max = arr[i];
+						j = i;
+					}
+				}
+				console.log(
+					`Самый результативный матч был под номером ${
+						j + 1
+					} кол-во голов ${max}`
+				);
+				alert(
+					`Самый результативный матч был под номером ${
+						j + 1
+					} кол-во голов ${max}`
+				);
+			};
+			const minGoalInMatch = (arr) => {
+				let min = arr[0];
+				let index = 0;
+				for (let i = 0; i < arr.length; i++) {
+					if (arr[i] != -1) {
+						if (arr[i] < min) {
+							min = arr[i];
+							index = i;
+						}
+					}
+				}
+				console.log(
+					`Самые нерезультативные матчи были под номерами ${
+						index + 1
+					} кол-во голов ${min}`
+				);
+				alert(
+					`Самые нерезультативные матчи были под номерами ${
+						index + 1
+					} кол-во голов ${min}`
+				);
+			};
+			const countGolas = (goals) => {
+				let sum = goals.reduce((ac, n) => {
+					console.log(ac);
+					return n !== -1 ? ac + n : ac + 0;
+				}, 0);
+				console.log(`Общее количество голов за сезон ${sum}`);
+				alert(`Общее количество голов за сезон ${sum}`);
+			};
+			const automatDefite = (arr) => {
+				let countDefite = 0;
+
+				arr.forEach((v, i) => {
+					if (v === -1) {
+						countDefite++;
+					}
+				});
+				if (countDefite > 0) {
+					alert(`Были автоматические поражения кол-во ${countDefite}`);
+				} else {
+					alert(`Небыло автоматических поражений`);
+				}
+			};
+			const avarage = (arr) => {
+				let countIndex = 0;
+				let sum = 0;
+				for (let i = 0; i < arr.length; i++) {
+					if (arr[i] == -1) continue;
+					sum += arr[i];
+					countIndex++;
+				}
+				console.log(sum);
+
+				alert(`Среднее кол-во голов за мач ${Math.round(sum / countIndex)}`);
+			};
+			let sortArray = (arr) => {
+				let inx = 0;
+				let newArr = arr;
+				for (let i = 0; i < newArr.length; i++) {
+					inx = newArr.findIndex((n) => n === -1);
+					if (inx !== -1) newArr.splice(inx, 1);
+				}
+				newArr.sort((a, b) => {
+					return a - b;
+				});
+				alert(newArr.join(","));
+			};
+
+			resultMoreBig(goals);
+			minGoalInMatch(goals);
+			countGolas(goals);
+			automatDefite(goals);
+			avarage(goals);
+			sortArray(goals);
+		</script>
+	</body>
+</html>

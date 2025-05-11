@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const getMathResult = (arr) => {
+				if (
+					arr[1] === "=" ||
+					arr[1] === "*" ||
+					arr[1] === "+" ||
+					arr[1] === "-" ||
+					arr[1] === "/" ||
+					arr[1] === ">" ||
+					arr[1] === "<"
+				) {
+					if (arr[1] === "+") {
+						return Number(arr[0]) + Number(arr[2]);
+					}
+					if (arr[1] === "-") {
+						return Number(arr[0]) - Number(arr[2]);
+					}
+					if (arr[1] === "/") {
+						return Number(arr[0]) / Number(arr[2]);
+					}
+					if (arr[1] === ">") {
+						// console.log(Number(arr[0]) > Number(arr[2]));
+						return Number(arr[0]) > Number(arr[2]);
+					}
+					if (arr[1] === "<") {
+						return Number([0]) < Number([2]);
+					}
+					if (arr[1] === "=") {
+						return Number([0]) === Number([2]);
+					}
+				} else {
+					return "Ошибки";
+				}
+			};
+
+			console.log(getMathResult(["200", "+", 300])); // 500
+			console.log(getMathResult(["20", "-", "5"])); // 15
+			console.log(getMathResult([100, "/", 100])); // 1
+			console.log(getMathResult([2, "-", 2])); // 0
+			console.log(getMathResult(["5", ">", "10"])); // false
+			console.log(getMathResult(["5", "<", "10"])); // true
+			console.log(getMathResult(["1", "=", 1])); // true
+			console.log(getMathResult(["1", "**", 1])); // 'Ошибка'
+			console.log(getMathResult(["+", "100", 10]));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			let matrix = [];
+			const matrixFromArray = (arr) => {
+				for (let i = 0; i < 3; i++) {
+					let a = [];
+					for (let j = 0; j < 5; j++) {
+						a.push(j + 1);
+					}
+
+					arr.push(a);
+
+					a = [];
+				}
+				// console.log(arr);
+			};
+
+			matrixFromArray(matrix);
+			console.log(matrix);
+		</script>
+	</body>
+</html>
