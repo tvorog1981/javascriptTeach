@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const showSuccessMessage = (messag) => console.log(messag);
+			const showErrorMessage = (messag) => console.log(messag);
+			const checkTextOnErrorSymbol = (tex, s, succes, erro) => {
+				let count = 0;
+				for (let i = 0; i < tex.length; i++) {
+					if (tex[i] === s) {
+						erro(`Был найден запрещенный символ ${text[i]} index ${i}`);
+						count++;
+					}
+				}
+				if (count === 0) {
+					succes("Небыло найдено не одного символа");
+				}
+			};
+			const text = "Привет! Как дела! Давно мы с тобой не виделись.";
+			checkTextOnErrorSymbol(text, "а", showSuccessMessage, showErrorMessage);
+			checkTextOnErrorSymbol(text, "ю", showSuccessMessage, showErrorMessage);
+		</script>
+	</body>
+</html>
