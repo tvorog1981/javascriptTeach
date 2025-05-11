@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			//let clientsEstimations = [5, 6, 7, 2, 1, 5, 6, 6, 7, 10, 2];
+			let clientsEstimations = [];
+			const askClientToGiveEstimation = (clientsArr) => {
+				if (Array.isArray(clientsArr)) {
+					const mark = Number(prompt("Оцените нашу работу").trim());
+					if (((mark) => 1) && 10 >= mark) {
+						clientsArr.push(mark);
+
+						return true;
+					}
+				}
+				return "undefined";
+			};
+			askClientToGiveEstimation(clientsEstimations);
+			const markCoffee = (arrMark) => {
+				const markPluse = arrMark.filter((item) => item > 5);
+				const markMinus = arrMark.filter((item) => item <= 5);
+				console.log(markPluse);
+				console.log(markMinus);
+				alert(`Всего положительных оченок ${markPluse.length}`);
+				alert(`Всего отрицательных  оченок ${markMinus.length}`);
+			};
+			markCoffee(clientsEstimations);
+		</script>
+	</body>
+</html>

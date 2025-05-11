@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const coffees = ["Latte", "Cappuccino", "Americano"];
+			const orderCoffe = prompt("Введите название coffee").trim();
+			const findCoffeInArray = (arrCoffe, orderCoffe) => {
+				if (Array.isArray(arrCoffe) && orderCoffe !== "undefined") {
+					let coffe =
+						String(orderCoffe.toLowerCase()).charAt(0).toUpperCase() +
+						String(orderCoffe.toLowerCase()).slice(1);
+					console.log(coffe);
+					let inx = arrCoffe.findIndex((findCoffee) => findCoffee === coffe);
+					console.log(inx);
+					if (inx === -1) {
+						alert("Кофе не было найдено сорри!!!");
+					} else {
+						let getCoffee = arrCoffe[inx];
+						alert(`Ваш кофе ${getCoffee} будет готов через 5 мин.`);
+					}
+				}
+			};
+
+			console.log(findCoffeInArray(coffees, orderCoffe));
+		</script>
+	</body>
+</html>

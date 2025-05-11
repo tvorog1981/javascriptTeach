@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const coffees = ["Latte", "Cappuccino", "Americano"];
+			const prices = [1.5, 1, 2];
+
+			const UpatePriceOfArray = (arr) => {
+				if (Array.isArray(arr)) {
+					let updatePrice = arr.map((item) => item + 0.5);
+					return updatePrice;
+				}
+
+				return "undefined";
+			};
+			const messageForClient = (coffees, price) => {
+				if (Array.isArray(coffees) && Array.isArray(price)) {
+					let strMessage = "";
+					coffees.forEach((item, index) => {
+						strMessage += `Кофе ${coffees[index]}  Новая цена ${
+							price[index]
+						} ${"\n"}`;
+					});
+					alert(strMessage);
+				}
+				return "undefined";
+			};
+			// console.log(UpatePriceOfArray(prices));
+			const UpdatePrice = UpatePriceOfArray(prices);
+			messageForClient(coffees, prices);
+		</script>
+	</body>
+</html>

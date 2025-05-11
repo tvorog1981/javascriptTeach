@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			let arr = [1, 2, 3, 4, 5];
+
+			const sumFirstLastElementOfArray = (arr) => {
+				if (Array.isArray(arr)) {
+					let f = 0;
+					let l = arr.length - 1;
+					return arr[f] + arr[l];
+				}
+				return "undefined";
+			};
+			console.log(sumFirstLastElementOfArray(arr));
+		</script>
+	</body>
+</html>
