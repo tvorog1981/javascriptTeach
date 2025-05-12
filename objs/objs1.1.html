@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const users = [
+				{
+					username: "David",
+					status: "online",
+					lastActivity: 10,
+				},
+				{
+					username: "Lucy",
+					status: "offline",
+					lastActivity: 22,
+				},
+				{
+					username: "Bob",
+					status: "online",
+					lastActivity: 104,
+				},
+			];
+			const status = "online";
+			const statusUsers = (status, users) => {
+				let newUsers = users.filter((element) => element.status === status);
+				console.log(newUsers);
+				let stringUsers = "";
+				newUsers.map((item, index) => {
+					console.log(item.username);
+					if (index === 0) {
+						stringUsers = item.username;
+					} else {
+						stringUsers += ", " + item.username;
+					}
+				});
+				console.log(stringUsers);
+				alert(`Сейчас онлайн пользователи: ${stringUsers}`);
+			};
+			statusUsers(status, users);
+		</script>
+	</body>
+</html>

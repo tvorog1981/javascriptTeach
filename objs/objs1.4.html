@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			// const objUser = {
+			// 	id: 1,
+			// 	name: "Denis",
+			// 	surnaname: "Smetankin",
+			// 	age: 43,
+			// };
+			// const car = {
+			// 	modelcar: { name: "BMW", model: "X5", color: "white" },
+			// };
+			// const newObj = { ...objUser, ...car };
+			// console.log(newObj);
+
+			const student = {
+				fullName: "Максим",
+				experienceInMonths: 12,
+				stack: ["HTML", "CSS", "JavaScript", "React"],
+			};
+
+			const giveJobToStudent = (obj, work) => {
+				obj = { ...obj, job: work };
+				const { fullName, _, job: jobName } = obj;
+				alert(
+					`Поздравляем! У студента ${fullName} появилась новая работа! Теперь он ${jobName}`
+				);
+				return obj;
+			};
+			// updatedStudent = {
+			// 	fullName: "Максим",
+			// 	experienceInMonths: 12,
+			// 	stack: ["HTML", "CSS", "JavaScript", "React"],
+			// 	job: "веб-разработчик",
+			// };
+
+			const updatedStudent = giveJobToStudent(student, "веб-разработчик");
+			console.log(updatedStudent);
+		</script>
+	</body>
+</html>

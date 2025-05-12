@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const handleObject = (obj, key, action) => {
+				if (action === "get") {
+					return obj[key];
+				}
+				if (action === "add") {
+					obj[key] = "";
+					return obj;
+				}
+				if (action === "delete") {
+					delete obj[key];
+					return obj;
+				}
+				return obj;
+			};
+
+			const student = {
+				name: "Maxim",
+				programmingLanguage: "JavaScript",
+			};
+			let obj1 = handleObject(student, "id", "add");
+			console.log(obj1);
+			let obj2 = handleObject(student, "name", "get");
+			console.log(obj2);
+			let obj3 = handleObject(student, "name", "delete");
+			console.log(obj3);
+			let obj4 = handleObject(student, "name", "fadsdelete");
+			console.log(obj4);
+		</script>
+	</body>
+</html>

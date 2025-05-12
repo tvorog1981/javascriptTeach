@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const ordersArr = [4, 2, 1, 3];
+			const people = [
+				{ id: 1, name: "Максим" },
+				{ id: 2, name: "Николай" },
+				{ id: 3, name: "Ангелина" },
+				{ id: 4, name: "Виталий" },
+			];
+			const giveTalonsInOrder = (people, ordersArr) => {
+				resultArray = [];
+				for (let i = 0; i < ordersArr.length; i++) {
+					for (let j = 0; j < people.length; j++) {
+						if (ordersArr[i] === people[j].id) {
+							resultArray = [...resultArray, people[j]];
+						}
+					}
+				}
+				console.log(resultArray);
+				return resultArray;
+			};
+
+			const result = giveTalonsInOrder(people, ordersArr);
+			console.log("result", result);
+		</script>
+	</body>
+</html>
