@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const isDate = (obj) =>
+				Object.prototype.toString.call(obj) === "[object Date]";
+			const getDateFormat = (date, separater = ".") => {
+				if (isDate(date)) {
+					let day = date.getDay();
+					if (day < 10) day = "0" + String(day + 1);
+					let mounth = date.getMonth();
+					if (mounth < 10) mounth = "0" + String(mounth + 1);
+					let year = date.getFullYear();
+
+					return `${day}${separater}${mounth}${separater}${year}`;
+
+					//  if(day)
+				} else {
+					console.log("format is not date ");
+					return "undefined";
+				}
+			};
+			let date = new Date();
+			console.log(getDateFormat(date, "-"));
+		</script>
+	</body>
+</html>
