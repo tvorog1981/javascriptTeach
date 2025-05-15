@@ -11,10 +11,10 @@
 				Object.prototype.toString.call(obj) === "[object Date]";
 			const getDateFormat = (date, separater = ".") => {
 				if (isDate(date)) {
-					let day = date.getDay();
-					if (day < 10) day = "0" + String(day + 1);
-					let mounth = date.getMonth();
-					if (mounth < 10) mounth = "0" + String(mounth + 1);
+					let day = date.getDate();
+
+					let mounth = date.getMonth() + 1;
+					if (mounth < 10) mounth = "0" + mounth;
 					let year = date.getFullYear();
 
 					return `${day}${separater}${mounth}${separater}${year}`;
