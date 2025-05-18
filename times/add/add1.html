@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const groceries = {
+				"73Wakv": {
+					name: "Orange Juice",
+					price: 1.5,
+					discount: 10,
+				},
+				"5L3db9": {
+					name: "Chocolate",
+					price: 2,
+					discount: 0,
+				},
+				// more items...
+			};
+
+			function discount(obj) {
+				if (obj.discount > 0) {
+					console.log(obj);
+					return (obj.price - (obj.price / 100) * 10) * obj.count;
+				} else if (obj.discount === 0) {
+					return obj.price * obj.count;
+				}
+				return undefined;
+			}
+			function getTotalPriceOfShoppingBag(shoppingBag) {
+				let sum = 0;
+				for (let i = 0; i < shoppingBag.length; i++) {
+					let fullObj = {
+						...groceries[shoppingBag[i].productId],
+						count: shoppingBag[i].count,
+					};
+					sum += discount(fullObj);
+				}
+				console.log(sum);
+				return sum;
+			}
+
+			const shoppingBag = [
+				{ productId: "73Wakv", count: 3 },
+				{ productId: "5L3db9", count: 23 },
+			];
+
+			const totalPrice = getTotalPriceOfShoppingBag(shoppingBag);
+			// console.log("totalPrice", totalPrice); // Возвращает 50.05
+		</script>
+	</body>
+</html>

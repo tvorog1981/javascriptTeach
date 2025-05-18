@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const peopleWithVisa = [
+				{
+					firstName: "Stasia",
+					lastName: "Ward",
+					criminalRecord: true,
+					passportExpiration: "19.06.2040",
+				},
+				{
+					firstName: "Elliot",
+					lastName: "Baker",
+					criminalRecord: false,
+					passportExpiration: "04.06.2041",
+				},
+				{
+					firstName: "Leighann",
+					lastName: "Scott",
+					criminalRecord: true,
+					passportExpiration: "31.07.2039",
+				},
+				{
+					firstName: "Nick",
+					lastName: "Pop",
+					criminalRecord: false,
+					passportExpiration: "31.12.2010",
+				},
+			];
+			const returnDate = (date) => {
+				const splitDate = date.split(".");
+				return new Date(splitDate[2], splitDate[1], [0]);
+			};
+			function allowVisa(people) {
+				let currentDay = Date.now();
+				let newArrayPeople = [];
+				people.forEach((element) => {
+					if (returnDate(element.passportExpiration) > Date.now()) {
+						if (!element.criminalRecord) {
+							newArrayPeople.push(element);
+						}
+					}
+				});
+				return newArrayPeople;
+			}
+
+			const result = allowVisa(peopleWithVisa);
+			console.log("result", result);
+		</script>
+	</body>
+</html>

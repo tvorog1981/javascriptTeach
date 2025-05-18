@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			function getRandomNumberInRange(min, max) {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			const hero = {
+				name: "Batman",
+				health: 100,
+			};
+			const enemy = {
+				name: "Joker",
+				health: 100,
+			};
+
+			const heatEnemy = (enemy) => {
+				enemy.health -= 10;
+			};
+			const heatHero = (hero) => {
+				hero.health -= 10;
+			};
+			const startGame = (hero, enemy) => {
+				while (true) {
+					const rez = getRandomNumberInRange(0, 1);
+					if (rez === 0) {
+						heatEnemy(enemy);
+						if (enemy.health === 0) {
+							alert(`Выграл hero его здоровье ${hero.health}`);
+							break;
+						}
+						console.log(`Здоровье enemy  ${enemy.health}`);
+					}
+					if (rez === 1) {
+						heatHero(hero);
+						if (hero.health === 0) {
+							alert(`Выграл enemy его здоровье ${enemy.health}`);
+							break;
+						}
+						console.log(`Здоровье hero ${hero.health}`);
+					}
+				}
+			};
+			startGame(hero, enemy);
+		</script>
+	</body>
+</html>
