@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const footballer = {
+				fullName: "Cristiano Ronaldo",
+				attack: function () {
+					console.log(`${this.fullName} сейчас с мячом и начинает атаку!`);
+				},
+				scoreGoal(sound) {
+					console.log(`${this.fullName} забил гол! Вот это да!`);
+					this.celebrate(sound);
+				},
+				celebrate(sound) {
+					console.log(sound);
+				},
+				goToSubstitution: function (newPlayer) {
+					console.log(
+						`${this.fullName} уходит на замену. На поле выходит ${newPlayer}`
+					);
+				},
+			};
+
+			const newAttack = footballer.attack;
+			const attack = newAttack.bind(footballer);
+			const score = footballer.scoreGoal;
+			const substitute = footballer.goToSubstitution;
+
+			attack();
+			score.call(footballer, "Сиииии");
+			substitute.apply(footballer, ["Paulo Dibala"]);
+		</script>
+	</body>
+</html>

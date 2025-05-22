@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const student = {
+				stack: ["HTML"],
+				level: 1,
+				count: 0,
+				improveLevel() {
+					if (this.level === 1) {
+						console.log(this.stack[this.count++]);
+						this.stack.push("CSS");
+						console.log(this.stack[this.count]);
+						this.level++;
+
+						return this;
+					}
+					if (this.level === 2) {
+						this.count += 1;
+						this.stack.push("JavaScript");
+						console.log(this.stack[this.count]);
+						this.level++;
+						return this;
+					}
+					if (this.level === 3) {
+						this.count += 1;
+						this.stack.push("React");
+						console.log(this.stack[this.count]);
+						this.level++;
+						return this;
+					}
+
+					if (this.level === 4) {
+						this.count += 1;
+
+						this.stack.push("NodeJS");
+						console.log(this.stack[this.count]);
+						this.level++;
+						return this;
+					}
+					if (this.level === 5) {
+						window.alert("Вы выучили все web tech");
+					}
+				},
+			};
+			student
+				.improveLevel()
+				.improveLevel()
+				.improveLevel()
+				.improveLevel()
+				.improveLevel();
+			// student.improveLevel();
+			console.log(student.stack);
+		</script>
+	</body>
+</html>
