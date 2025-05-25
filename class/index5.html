@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			class Developer {
+				constructor(fullName, age, position) {
+					this.fullName = fullName;
+					this.age = age;
+					this.position = position;
+					this.technologies = [];
+				}
+				code() {}
+				learnNewTechnologies(technology) {
+					this.technologies.push(technology);
+				}
+			}
+			class JuniorDeveloper extends Developer {
+				constructor(name, age) {
+					super(name, age, "Junior");
+				}
+				code() {
+					let arr = ["HTML", "CSS", "JavaScript"];
+					arr.forEach((element) => {
+						this.learnNewTechnologies(element);
+					});
+					console.log(
+						`Junior разработчик пишет код на  ${this.technologies.join(",")}`
+					);
+				}
+			}
+
+			class MiddleDeveloper extends Developer {
+				constructor(name, age) {
+					super(name, age, "Middle");
+				}
+				code() {
+					let rezString = "";
+					let arr = ["HTML", "CSS", "JavaScript", "Reac"];
+					arr.forEach((element) => {
+						this.learnNewTechnologies(element);
+					});
+					console.log(
+						`Middle разработчик пишет код на  ${this.technologies.join(",")}`
+					);
+				}
+			}
+
+			class SeniorDeveloper extends Developer {
+				constructor(name, age) {
+					super(name, age, "Middle");
+				}
+				code() {
+					let rezString = "";
+					let arr = ["HTML", "CSS", "JavaScript", "React", "NodeJS"];
+					arr.forEach((element) => {
+						this.learnNewTechnologies(element);
+					});
+					console.log(
+						`Senior разработчик пишет код на  ${this.technologies.join(",")}`
+					);
+				}
+			}
+
+			const juniorDeveloper = new JuniorDeveloper("Анастасия", 20);
+			const middleDeveloper = new MiddleDeveloper("Игорь", 25);
+			const seniorDeveloper = new SeniorDeveloper("Максим", 30);
+
+			juniorDeveloper.code(); // Junior разработчик пишет код...
+			middleDeveloper.code(); // Middle разработчик пишет код...
+			seniorDeveloper.code(); // Senior разработчик пишет код...
+
+			seniorDeveloper.learnNewTechnologies("Docker");
+
+			console.log(
+				juniorDeveloper.fullName,
+				juniorDeveloper.age,
+				juniorDeveloper.position,
+				juniorDeveloper.technologies
+			);
+			// 'Анастасия' 20 'Junior' ['HTML', 'CSS', 'JavaScript']
+
+			console.log(
+				middleDeveloper.fullName,
+				middleDeveloper.age,
+				middleDeveloper.position,
+				middleDeveloper.technologies
+			);
+			// 'Игорь' 25 'Middle' ['HTML', 'CSS', 'JavaScript', 'React']
+
+			console.log(
+				seniorDeveloper.fullName,
+				seniorDeveloper.age,
+				seniorDeveloper.position,
+				seniorDeveloper.technologies
+			);
+			// 'Максим' 30 'Senior' ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS', 'Docker']
+		</script>
+	</body>
+</html>

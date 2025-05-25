@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			class Person {
+				constructor(name, age) {
+					this.name = name;
+					this.age = age;
+				}
+				compareAge(personCompare) {
+					if (personCompare instanceof Person) {
+						// console.log(personCompare);
+						if (this.age > personCompare.age) {
+							alert(
+								`${this.name} больше чем у ${personCompare.name}     ${this.age} > ${personCompare.age}`
+							);
+						}
+						if (this.age === personCompare.age) {
+							alert(
+								`${this.name} равны ${personCompare.name}     ${this.age} = ${personCompare.age}`
+							);
+						}
+
+						if (this.age < personCompare.age) {
+							alert(
+								`${this.name}  меньше чем ${personCompare.name}     ${this.age} < ${personCompare.age}`
+							);
+						}
+					} else {
+						return undefined;
+					}
+				}
+			}
+			const person1 = new Person("Максим", 24);
+			const person2 = new Person("Светлана", 36);
+			const person3 = new Person("Ирина", 23);
+
+			person1.compareAge(person2); // Максим младше, чем Светлана
+			person2.compareAge(person3); // Светлана старше, чем Ирина
+			person3.compareAge(person1); // Ирина младше, чем Максим
+		</script>
+	</body>
+</html>

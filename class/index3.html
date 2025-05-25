@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			class Dictionary {
+				constructor(name) {
+					this.name = name;
+					this.words = {};
+				}
+				add(word, desc) {
+					// console.log(word in this.words);
+					if (!(word in this.words)) {
+						this.words[word] = { word: word, description: desc };
+					} else {
+						console.log("key is exist");
+						return undefined;
+					}
+				}
+				remove(key) {
+					if (key in this.words) {
+						delete this.words[key];
+					} else {
+						console.log("key is not exist");
+						return undefined;
+					}
+				}
+				get(key) {
+					if (key in this.words) {
+						return this.words[key];
+					} else {
+						console.log("key is not exist");
+						return undefined;
+					}
+				}
+				showAllWords() {
+					for (let w in this.words) {
+						console.log(
+							`${this.words[w]["word"]} - ${this.words[w]["description"]} `
+						);
+					}
+				}
+				print() {
+					console.log(this.words);
+				}
+			}
+			const words = new Dictionary("js");
+			words.add("js", "язык програмирования");
+			words.add("Python", "язык програмирования");
+			words.showAllWords();
+			// words.add("Python", "язык програмирования333");
+			// words.add("js", "111язык програмирования");
+			// words.print();
+			console.log(words.get("Python"));
+			// words.remove("js");
+			// words.print();
+		</script>
+	</body>
+</html>
