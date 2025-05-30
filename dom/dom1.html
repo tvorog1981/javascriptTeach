@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			// <form class="create-user-form">
+			//     <label>
+			//         Имя
+			//         <input type="text" name="userName" placeholder="Введите ваше имя">
+			//     </label>
+			//     <label>
+			//         Пароль
+			//         <input type="password" name="password" placeholder="Придумайте Пароль">
+			//     </label>
+			//     <button type="submit">
+			//         Подтвердить
+			//     </button>
+			// </form>
+
+			const form = document.createElement("form");
+			form.className = "create-user-form";
+
+			const label1 = document.createElement("label");
+			label1.textContent = " Имя";
+
+			const input = document.createElement("input");
+			input.setAttribute("name", "userName");
+			input.setAttribute("type", "text");
+			input.setAttribute("placeholder", "Введите ваше имя");
+			label1.append(input);
+
+			form.append(label1);
+			const label2 = document.createElement("label");
+			label2.textContent = "Пароль";
+			const input2 = document.createElement("input");
+			input2.setAttribute("type", "password");
+			input2.setAttribute("name", "password");
+			input2.setAttribute("placeholder", "Придумайте Пароль");
+			label2.append(input2);
+
+			form.append(label2);
+			const button = document.createElement("button");
+			button.textContent = "Подтвердить";
+			button.setAttribute("type", "submit");
+			form.append(button);
+			const getBody = document.querySelector("body");
+
+			getBody.prepend(form);
+		</script>
+	</body>
+</html>

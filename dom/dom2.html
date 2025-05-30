@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script defer>
+			const tasks = [
+				{
+					id: "1138465078061",
+					completed: false,
+					text: "Посмотреть новый урок по JavaScript",
+				},
+				{
+					id: "1138465078062",
+					completed: false,
+					text: "Выполнить тест после урока",
+				},
+				{
+					id: "1138465078063",
+					completed: false,
+					text: "Выполнить ДЗ после урока",
+				},
+			];
+			const createTask = (id, completed, text) => {
+				const taskItem = document.createElement("div");
+				taskItem.classList = "task-item";
+				taskItem.dataset.taskId = id;
+
+				const taskItemMainContent = document.createElement("div");
+				taskItemMainContent.classList = "task-item__main-container";
+				taskItem.prepend(taskItemMainContent);
+
+				const taskItemMainContainer = document.createElement("div");
+				taskItemMainContainer.classList = "task-item__main-content";
+				taskItemMainContent.prepend(taskItemMainContainer);
+
+				const form = document.createElement("form");
+				form.classList = "checkbox-form";
+				taskItemMainContainer.prepend(form);
+
+				const span = document.createElement("span");
+				span.classList = "task-item__text";
+				span.textContent = text;
+				taskItemMainContainer.append(span);
+
+				const input = document.createElement("input");
+				input.classList = "checkbox-form__checkbox";
+				input.setAttribute("type", "checkbox");
+				input.setAttribute("id", `task-${id}`);
+				const l = document.createElement("label");
+				l.setAttribute("for", `task-${id}`);
+				form.prepend(l);
+				form.append(l);
+				const button = document.createElement("button");
+				button.classList = "task-item__delete-button";
+				button.classList = "default-button";
+				button.classList = "delete-button";
+				button.textContent = " Удалить";
+				taskItemMainContainer.after(button);
+				return taskItem;
+			};
+
+			const body = document.querySelector("body");
+			let listTask = document.createElement("div");
+			listTask.classList = "list-task";
+			for (let i = 0; i < tasks.length; i++) {
+				listTask.prepend(
+					createTask(tasks[i].id, tasks[i].completed, tasks[i].text)
+				);
+			}
+
+			body.prepend(listTask);
+
+			// <div class="task-item" data-task-id="1">
+			//     <div class="task-item__main-container">
+			//         <div class="task-item__main-content">
+			//             <form class="checkbox-form">
+			//                 <input class="checkbox-form__checkbox" type="checkbox" id="task-1">
+			//                 <label for="task-1"></label>
+			//             </form>
+			//             <span class="task-item__text">
+			//                 Посмотреть новый урок по JavaScript
+			//             </span>
+			//         </div>
+			//         <button class="task-item__delete-button default-button delete-button">
+			//             Удалить
+			//         </button>
+			//     </div>
+			// </div>
+		</script>
+	</body>
+</html>
