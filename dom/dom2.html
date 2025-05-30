@@ -52,7 +52,7 @@
 				input.setAttribute("id", `task-${id}`);
 				const l = document.createElement("label");
 				l.setAttribute("for", `task-${id}`);
-				form.prepend(l);
+				form.prepend(input);
 				form.append(l);
 				const button = document.createElement("button");
 				button.classList = "task-item__delete-button";
