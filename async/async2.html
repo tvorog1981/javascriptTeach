@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			const TODOS_URL = "https://jsonplaceholder.typicode.com/todos";
+			const getTodosByIds = async (ids) => {
+				try {
+					const requests = await ids.map((id) => fetch(`${TODOS_URL}/${id}`));
+					const prom = await Promise.all(requests);
+					const respo = await prom.map((data) => data.json());
+					const data = await Promise.all(respo);
+					console.log(data);
+				} catch (e) {
+					console.log(`Error ${e}`);
+				} finally {
+				}
+			};
+			getTodosByIds([43, 21, 55, 100, 10]);
+		</script>
+	</body>
+</html>

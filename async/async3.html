@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.data-container {
+				width: 500px;
+				margin: 0 auto;
+			}
+			ol {
+				display: flex;
+				gap: 15px;
+				border-radius: 5px;
+				border: 1px solid teal;
+				width: 500px;
+				padding: 5px;
+				margin-bottom: 5px;
+			}
+			ol:hover {
+				background-color: teal;
+				color: white;
+				transition: 1s;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="data-container"></ul>
+		<script>
+			const showAlbums = (alb) => {
+				const ul = document.querySelector(".data-container");
+				alb.forEach((element) => {
+					const ol = document.createElement("ol");
+					const idAlb = document.createElement("span");
+					idAlb.textContent = element.id;
+					const titleAlb = document.createElement("span");
+					titleAlb.textContent = element.title;
+					ol.append(idAlb);
+					ol.append(titleAlb);
+
+					ul.append(ol);
+				});
+
+				console.log(alb);
+			};
+			const url = "https://jsonplaceholder.typicode.com/albums";
+			const renderAlbums = async () => {
+				let isLoading = false;
+				isLoading = true;
+				let load = document.createElement("span");
+				load.setAttribute("data-loading", true);
+				load.textContent = "....Loading";
+				const body = document.querySelector("body");
+				body.append(load);
+				try {
+					setTimeout(async function () {
+						const response = await fetch(url, { metod: "GET" });
+						if (!response.ok) {
+							throw new Error();
+						}
+						const albums = await response.json();
+
+						showAlbums(albums);
+					}, 2000);
+				} catch (e) {
+					console.log(`Error ${e}`);
+					const load = document.querySelector("[data-loading]");
+					console.log(load);
+					load.remove();
+					isLoading = false;
+					isLoading = false;
+				} finally {
+					setTimeout(function () {
+						const load = document.querySelector("[data-loading]");
+						console.log(load);
+						load.remove();
+					}, 2000);
+				}
+			};
+			renderAlbums();
+		</script>
+	</body>
+</html>
