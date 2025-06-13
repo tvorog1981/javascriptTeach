@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.user {
+				margin-bottom: 2px;
+				padding: 10px;
+				border: 1px solid teal;
+				border-radius: 3px;
+				display: flex;
+				justify-content: space-between;
+			}
+			.user:hover {
+				background-color: teal;
+				color: #ffff;
+				transition-duration: 1s;
+			}
+			#data-container {
+				width: 900px;
+				margin: 0 auto;
+			}
+			.header {
+				text-transform: uppercase;
+				margin: 0 auto;
+				display: flex;
+				justify-content: center;
+				border: 1px solid teal;
+				width: 200px;
+				margin-bottom: 2px;
+				font-weight: bold;
+				background-color: teal;
+				color: #ffff;
+				border-radius: 2px;
+			}
+            .idUser{
+                border-radius: 2px;
+                padding: 4px 4px;
+                color:#ffff;
+                background-color:teal;
+            }
+		</style>
+	</head>
+	<body>
+		<header class="header">Users</header>
+		<div id="data-container">
+		
+		<script>
+			const urlUsers = "https://jsonplaceholder.typicode.com/users";
+
+			function fetchAllUsers(url) {
+				fetch(url, {
+					method: "GET",
+                    header:'charset-utf-8;application/json'
+				})
+					.then((response) => {
+						console.log(response.status);
+						if (!response.ok) {
+							throw new Error(`Error network ${response.status}`);
+						}
+						return response.json();
+					})
+					.then((users) => {
+						showUsers(users);
+					})
+					.catch((err) => console.log(`Error ${err}`));
+			}
+			fetchAllUsers(urlUsers);
+			function showUsers(users) {
+				let addUsers = document.querySelector("#data-container");
+				users.forEach((element,index) => {
+                    
+					const createUsers = document.createElement("div");
+					createUsers.classList = "user";
+// 
+					const idUser = document.createElement("span");
+                    idUser.classList = "idUser"
+					idUser.textContent = element.id;
+	// 
+                    const nameUser = document.createElement("span");
+					nameUser.textContent = element.name;
+		// 
+                    const emailUser = document.createElement("span");
+					emailUser.textContent = element.email;
+			// 
+                    createUsers.append(idUser);
+					createUsers.append(nameUser);
+					createUsers.append(emailUser);
+
+					addUsers.append(createUsers);
+                    console.log(element.id)
+                    
+				});
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			a {
+				list-style: none;
+			}
+			li {
+				padding: 5px;
+				display: flex;
+				flex-direction: column;
+				border: 1px solid teal;
+				width: 50%;
+				align-items: center;
+				list-style: none;
+			}
+			.list-items {
+				width: 1000px;
+				margin: 0 auto;
+			}
+			img {
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list-items"></ul>
+
+		<script>
+			const url = "https://api.slingacademy.com/v1/sample-data/photos/";
+			const arrPhothos = [60, 12, 55];
+
+			function getFastestLoadedPhoto(arrPhothos) {
+				const fastPhothos = arrPhothos.map((photho) =>
+					fetch(`${url}${photho}`, { method: "GET" })
+				);
+				const fastPromise = Promise.race(fastPhothos);
+				fastPromise
+					.then((p) => p.json())
+					.then((pp) => {
+						showImage(pp.photo);
+					})
+					.catch((e) => `Error ${e}`);
+			}
+			function showImage(photo) {
+				console.log(photo);
+				const ul = document.querySelector(".list-items");
+				const img = document.createElement("img");
+				img.setAttribute("src", photo.url);
+				img.setAttribute("alt", "Фотография");
+				img.style = "width:200px";
+				const li = document.createElement("li");
+				li.append(img);
+				const h1 = document.createElement("h1");
+				h1.textContent = photo.title;
+				h3 = document.createElement("h3");
+				h3.textContent = photo.description;
+				li.append(h1);
+				li.append(h3);
+
+				ul.append(li);
+			}
+			getFastestLoadedPhoto(arrPhothos);
+		</script>
+	</body>
+</html>

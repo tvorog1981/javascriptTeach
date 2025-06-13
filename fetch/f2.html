@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			#data-container {
+				padding: 0;
+				margin: 0 auto;
+				list-style: none;
+				width: 900px;
+			}
+			.item {
+				background-color: azure;
+				margin-bottom: 2px;
+			}
+			.item:hover {
+				background-color: teal;
+				color: #ffff;
+			}
+			a {
+				text-decoration: none;
+				display: flex;
+				justify-content: space-between;
+				color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="data-container"></ul>
+
+		<script>
+			const ids = [5, 6, 2, 1];
+			const url = "https://jsonplaceholder.typicode.com/users";
+			function getUsersByIds(ids) {
+				const promiseIds = ids.map((id) =>
+					fetch(`${url}/${id}`, { method: "GET" })
+				);
+				const promiseJson = Promise.all(promiseIds);
+				promiseJson
+					.then((p) => {
+						const jsonData = p.map((p) => p.json());
+						return Promise.all(jsonData);
+					})
+					.then((users) => {
+						htmlCreateUsers(users);
+					})
+					.catch((e) => console.log(e));
+			}
+			function htmlCreateUsers(users) {
+				const mainElement = document.querySelector("#data-container");
+				users.forEach((u) => {
+					const user = document.createElement("li");
+					user.classList = "item";
+					const userHref = document.createElement("a");
+					userHref.setAttribute("href", "#");
+					const idSpan = document.createElement("span");
+					idSpan.textContent = u.id;
+					const nameSpan = document.createElement("span");
+					nameSpan.textContent = u.name;
+					const emailSpan = document.createElement("span");
+					emailSpan.textContent = u.email;
+					userHref.append(idSpan);
+					userHref.append(nameSpan);
+					userHref.append(emailSpan);
+
+					user.append(userHref);
+					mainElement.append(user);
+				});
+			}
+			getUsersByIds(ids);
+
+			// getUsersByIds([5, 6, 2, 1]);
+		</script>
+	</body>
+</html>
