@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.index {
+	background: teal;
+}
+.about {
+	background: yellow;
+}
+.descriptions {
+	background: red;
+}
+.list {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+}
+.link {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.container {
+	background: #fff;
+	margin: 0 auto;
+	width: 900px;
+	border: 1px black dashed;
+}
